@@ -19,8 +19,8 @@ import java.util.zip.ZipInputStream
 
 object FridaUtils {
     private const val FRIDA_GITHUB_API = "https://api.github.com/repos/frida/frida/releases"
-    const val FRIDA_BINARY_PATH = "/data/local/tmp/frida-server"
-    private const val FRIDA_VERSION_FILE = "/data/local/tmp/frida-version.txt"
+    const val FRIDA_BINARY_PATH = "/data/local/tmp/fr-srv"
+    private const val FRIDA_VERSION_FILE = "/data/local/tmp/fr-v.txt"
 
     data class FridaRelease(
         val version: String,
@@ -376,7 +376,7 @@ object FridaUtils {
     suspend fun stopFridaServer(): Boolean {
         return withContext(Dispatchers.IO) {
             try {
-                executeSuCommand("kill -9 \$(ps -A | grep frida-server | awk '{ print \$2 }')")
+                executeSuCommand("kill -9 \$(ps -A | grep fr-srv | awk '{ print \$2 }')")
                 Thread.sleep(500)
 
                 var isRunning = isFridaServerRunning()
@@ -384,7 +384,7 @@ object FridaUtils {
                     return@withContext true
                 }
 
-                executeSuCommand("kill -9 \$(pidof frida-server)")
+                executeSuCommand("kill -9 \$(pidof fr-srv)")
                 Thread.sleep(300)
 
                 isRunning = isFridaServerRunning()
@@ -392,7 +392,7 @@ object FridaUtils {
                     return@withContext true
                 }
 
-                executeSuCommand("kill -9 \$(ps | grep frida-server | awk '{ print \$2 }')")
+                executeSuCommand("kill -9 \$(ps | grep fr-srv | awk '{ print \$2 }')")
                 Thread.sleep(300)
 
                 isRunning = isFridaServerRunning()
@@ -400,7 +400,7 @@ object FridaUtils {
                     return@withContext true
                 }
 
-                executeSuCommand("pkill -9 -f frida-server")
+                executeSuCommand("pkill -9 -f fr-srv")
                 Thread.sleep(500)
 
                 isRunning = isFridaServerRunning()
@@ -504,17 +504,17 @@ object FridaUtils {
     suspend fun isFridaServerRunning(): Boolean {
         return withContext(Dispatchers.IO) {
             try {
-                var result = executeSuCommand("ps -A | grep frida-server")
-                if (result.contains("frida-server")) {
+                var result = executeSuCommand("ps -A | grep fr-srv")
+                if (result.contains("fr-srv")) {
                     return@withContext true
                 }
 
-                result = executeSuCommand("ps | grep frida-server")
-                if (result.contains("frida-server")) {
+                result = executeSuCommand("ps | grep fr-srv")
+                if (result.contains("fr-srv")) {
                     return@withContext true
                 }
 
-                result = executeSuCommand("pidof frida-server")
+                result = executeSuCommand("pidof fr-srv")
                 if (result.trim().isNotEmpty()) {
                     return@withContext true
                 }
