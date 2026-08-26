@@ -21,7 +21,7 @@
             android:layout_height="?attr/actionBarSize"
             android:background="@color/surface"
             app:title="Frida Launcher"
-            app:subtitle="v2.0"
+            app:subtitle="@string/app_version"
             app:titleTextAppearance="@style/TextAppearance.FridaLauncher.Headline"
             app:subtitleTextAppearance="@style/TextAppearance.FridaLauncher.Caption"
             app:titleTextColor="@color/blue_primary"
