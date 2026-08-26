@@ -6,7 +6,7 @@
 
     <!-- Remove permission that's not required -->
     <permission
-        android:name="com.cybersandeep.fridalauncher.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+        android:name="com.friway.srv.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
         tools:node="remove" />
 
     <application

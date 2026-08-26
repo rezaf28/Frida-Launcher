@@ -9,11 +9,11 @@ java {
 }
 
 android {
-    namespace = "com.cybersandeep.fridalauncher"
+    namespace = "com.friway.srv"
     compileSdk = 37
 
     defaultConfig {
-        applicationId = "com.cybersandeep.fridalauncher"
+        applicationId = "com.friway.srv"
         minSdk = 24
         targetSdk = 37
         versionCode = 3

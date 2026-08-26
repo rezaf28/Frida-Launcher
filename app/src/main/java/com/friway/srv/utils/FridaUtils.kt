@@ -1,4 +1,4 @@
-package com.cybersandeep.fridalauncher.utils
+package com.friway.srv.utils
 
 import android.content.Context
 import android.os.Build

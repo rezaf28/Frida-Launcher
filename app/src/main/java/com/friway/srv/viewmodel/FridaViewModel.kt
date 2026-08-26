@@ -1,12 +1,12 @@
-package com.cybersandeep.fridalauncher.viewmodel
+package com.friway.srv.viewmodel
 
 import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.cybersandeep.fridalauncher.utils.FridaUtils
-import com.cybersandeep.fridalauncher.utils.FridaUtils.FridaRelease
+import com.friway.srv.utils.FridaUtils
+import com.friway.srv.utils.FridaUtils.FridaRelease
 import kotlinx.coroutines.launch
 import java.io.File
 

@@ -1,4 +1,4 @@
-package com.cybersandeep.fridalauncher
+package com.friway.srv
 
 import android.content.ClipData
 import android.content.ClipboardManager
@@ -22,10 +22,10 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.Observer
-import com.cybersandeep.fridalauncher.databinding.ActivityMainBinding
-import com.cybersandeep.fridalauncher.databinding.RootRequiredBannerBinding
-import com.cybersandeep.fridalauncher.utils.FridaUtils
-import com.cybersandeep.fridalauncher.viewmodel.FridaViewModel
+import com.friway.srv.databinding.ActivityMainBinding
+import com.friway.srv.databinding.RootRequiredBannerBinding
+import com.friway.srv.utils.FridaUtils
+import com.friway.srv.viewmodel.FridaViewModel
 
 class MainActivity : AppCompatActivity() {
 
