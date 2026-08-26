@@ -1,16 +1,21 @@
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
 }
 
 android {
     namespace = "com.cybersandeep.fridalauncher"
-    compileSdk = 35
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "com.cybersandeep.fridalauncher"
         minSdk = 24
-        targetSdk = 35
+        targetSdk = 37
         versionCode = 3
         versionName = "2.0"
 
@@ -22,7 +27,7 @@ android {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                "proguard-rules.pro",
             )
             isDebuggable = false
         }
@@ -33,11 +38,8 @@ android {
         baseline = file("lint-baseline.xml")
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-    kotlinOptions {
-        jvmTarget = "11"
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
     buildFeatures {
         viewBinding = true
@@ -50,26 +52,26 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    
+
     // Coroutines
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
-    
+    implementation(libs.kotlinx.coroutines.android)
+
     // OkHttp for network requests
-    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+    implementation(libs.okhttp)
     
     // Lifecycle components
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
     
     // XZ compression library
-    implementation("org.tukaani:xz:1.9")
+    implementation(libs.xz)
     
     // Gson for JSON parsing
-    implementation("com.google.code.gson:gson:2.10.1")
+    implementation(libs.gson)
     
     // Add these dependencies to fix the missing class issues
-    implementation("androidx.profileinstaller:profileinstaller:1.4.0")
-    implementation("androidx.startup:startup-runtime:1.1.1")
+    implementation(libs.androidx.profileinstaller)
+    implementation(libs.androidx.startup.runtime)
     
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
